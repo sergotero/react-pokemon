@@ -4,7 +4,7 @@ Una aplicación React interactiva para explorar y visualizar Pokémon con navega
 
 ## 🎯 Objetivo del Proyecto
 
-Crear una aplicación React que muestre las páginas `/pokemons` y `/pokemon/:id` utilizando React Router y hooks de React.
+Crear una aplicación React que muestre las páginas `/pokemons` y `/pokemons/:id` utilizando React Router y hooks de React.
 
 ## 📋 Requisitos Funcionales
 
@@ -14,7 +14,7 @@ Crear una aplicación React que muestre las páginas `/pokemons` y `/pokemon/:id
 - Mostrar un pokémon aleatorio cada 3 segundos (rotación automática)
 - Al hacer clic sobre el pokémon, navegar a su página de detalle
 
-### Página de Detalle (`/pokemon/:id`)
+### Página de Detalle (`/pokemons/:id`)
 
 - Mostrar información completa del pokémon seleccionado
 - Incluir un enlace para volver a la página principal
