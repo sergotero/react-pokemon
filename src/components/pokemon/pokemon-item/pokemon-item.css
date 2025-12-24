@@ -1,0 +1,11 @@
+
+.pokemon-item > div {
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.pokemon-item > h3 {
+  min-width: 150px;
+}

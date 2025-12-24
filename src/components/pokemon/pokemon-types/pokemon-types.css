@@ -1,0 +1,11 @@
+
+.pokemon-types img {
+  max-width: 120px;
+}
+
+.pokemon-types a.active {
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 4px;
+}
+
+        

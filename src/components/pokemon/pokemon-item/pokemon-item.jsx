@@ -1,15 +1,14 @@
-import { Link } from "react-router";
+import './pokemon-item.css';
 
-
-function PokemonItem({ pokemon }) {
-  const { id, name, image, description } = pokemon;
+function PokemonItem({ id, name, imageUrl, types }) {
   return (
-    <div className="card">
-      <img src={image.hires} className="card-img-top p-2" alt={name.english} />
-      <div className="card-body">
-        <Link className="card-title stretched-link" to={`/pokemones/${id}`}><h5 className="mb-1">{name.english}</h5></Link>
-        <p className="card-text">{description}</p>
-      </div>
+    <div className='pokemon-item d-flex flex-column gap-1'>
+      <div style={{ backgroundImage: `url(${imageUrl})`}}></div>
+      <h3 className='text-capitalize fw-light mb-0 text-break'>{name}</h3>
+      <span className='text-muted'>#{id}</span>
+      {types?.map(({ imageUrl, name }) => (
+        <img src={imageUrl} alt={name}></img>
+      ))}
     </div>
   )
 }

@@ -1,10 +1,11 @@
 import { PageLayout } from "../components/layouts";
-import { PokemonRandom } from "../components/pokemon";
+import { PokemonList, PokemonTypes } from "../components/pokemon";
 
 function HomePage() {
   return (
     <PageLayout>
-      <PokemonRandom refreshInterval={1}/>
+      <PokemonTypes />
+      <PokemonList className="mt-5" withPages={true} />
     </PageLayout>
   )
 }
