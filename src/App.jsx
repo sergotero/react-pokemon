@@ -1,6 +1,6 @@
 import { Navbar } from "./components/ui";
 import { Routes, Route } from "react-router";
-import { HomePage, PokemonDetailPage, PokemonesByTypePage } from "./pages";
+import { HomePage, LoginPage, PokemonDetailPage, PokemonesByTypePage, RegisterPage } from "./pages";
 
 function App() {
   return (
@@ -11,6 +11,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/pokemones/:id" element={<PokemonDetailPage />} />
         <Route path="/types/:id" element={<PokemonesByTypePage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
 
     </>
