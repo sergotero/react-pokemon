@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
 import * as AuthService from "../../../services/auth-service";
+import { useAuth } from "../../../contexts";
 
 function LoginForm() {
   const { register, handleSubmit, setError, reset, formState: { errors, isValid } } = useForm({ mode: 'all' });
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleUserLogin = async (user) => {
@@ -11,6 +13,8 @@ function LoginForm() {
       user = await AuthService.login(user);
       console.log(user);
       reset();
+      login(user);
+      navigate('/');
     } catch (error) {
       const { status } = error;
       if (status === 401) {

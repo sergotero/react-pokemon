@@ -4,8 +4,9 @@ import { RegisterForm } from "../components/users";
 function RegisterPage() {
   return (
     <PageLayout>
-      <div className="row justify-content-center">
+      <div className="row justify-content-center mt-4">
         <div className="col-12 col-md-4">
+          <h3 className="fw-light">Register</h3>
           <RegisterForm />
         </div>
       </div>

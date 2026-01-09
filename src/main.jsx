@@ -4,13 +4,16 @@ import { BrowserRouter as Router  } from 'react-router';
 import worker from './mocks';
 import './index.css';
 import App from './App.jsx';
+import { AuthContextProvider } from './contexts';
 
 worker.start({ onUnhandledRequest: 'bypass' })
   .then(() => {
     createRoot(document.getElementById('root')).render(
       <StrictMode>
         <Router>
-          <App />
+          <AuthContextProvider>
+            <App />
+          </AuthContextProvider>
         </Router>
       </StrictMode>,
     )

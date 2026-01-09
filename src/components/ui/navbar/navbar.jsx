@@ -1,7 +1,12 @@
 import { Link, NavLink } from "react-router";
+import { useAuth } from "../../../contexts";
 
 
 function Navbar() {
+  const { user, logout } = useAuth();
+
+  const handleLogout = () => logout();
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container">
@@ -10,10 +15,26 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="main-navbar">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            {user?.role === 'admin' && (
+              <>
+                <li className="nav-item"><NavLink className="nav-link" to="/users">Users</NavLink></li>
+              </>
+            )}
+          </ul>
           <ul className="navbar-nav">
-            <li className="nav-item"><NavLink className="nav-link" to="/register">Register</NavLink></li>
-            <li className="nav-item"><NavLink className="nav-link" to="/login">Login</NavLink></li>
+            {!user && (
+              <>
+                <li className="nav-item"><NavLink className="nav-link" to="/register">Register</NavLink></li>
+                <li className="nav-item"><NavLink className="nav-link" to="/login">Login</NavLink></li>
+              </>
+            )}
+            {user && (
+              <>
+                <li className="nav-item"><NavLink className="nav-link" to="/profile">{user.email}</NavLink></li>
+                <li className="nav-item"><button className="nav-link" onClick={handleLogout}><i className="fa fa-sign-out"></i></button></li>
+              </>
+            )}
           </ul>
         </div>
       </div>

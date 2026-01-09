@@ -3,6 +3,7 @@ import { http, HttpResponse } from 'msw';
 const baseApiURL = 'https://pokeapiauth.com';
 
 const USERS_LS_KEY = 'users-db';
+const ADMIN_USERS_EMAILS = ['carlos@example.org'];
 
 const users = localStorage.getItem(USERS_LS_KEY) ? JSON.parse(localStorage.getItem(USERS_LS_KEY)) : [];
 
@@ -26,11 +27,12 @@ export const handleRegister = http.post(`${baseApiURL}/users`, async ({ request 
     )
   } else {
     user.id = window.crypto.randomUUID().toString();
+    user.avatarURL = `https://i.pravatar.cc/300?u=${user.email}`;
+    user.role = ADMIN_USERS_EMAILS.includes(user.email.toLowerCase()) ? 'admin' : 'guess';
 
     users.push(user);
     storeUsers();
 
-    delete user.password;
     return HttpResponse.json(user, { status: 201 });
   }
 });
