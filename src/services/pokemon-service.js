@@ -2,7 +2,7 @@ import axios from 'axios';
 import pokemonTypes from '../data/pokemon/types.json';
 
 const http = axios.create({
-  baseURL: 'https://pokeapi.co/api/v2'
+  baseURL: import.meta.env.VITE_POKE_API_BASE_URL
 });
 
 

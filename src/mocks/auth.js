@@ -1,9 +1,10 @@
 import { http, HttpResponse } from 'msw';
 
-const baseApiURL = 'https://pokeapiauth.com';
+const baseApiURL = import.meta.env.VITE_AUTH_API_BASE_URL;
 
 const USERS_LS_KEY = 'users-db';
-const ADMIN_USERS_EMAILS = ['carlos@example.org'];
+const ADMIN_USERS_EMAILS = import.meta.env.VITE_ADMIN_EMAILS?.split(',')
+  .map((email) => email.trim().toLowerCase());
 
 const users = localStorage.getItem(USERS_LS_KEY) ? JSON.parse(localStorage.getItem(USERS_LS_KEY)) : [];
 

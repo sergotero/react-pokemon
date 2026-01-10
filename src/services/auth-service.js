@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const http = axios.create({
-  baseURL: 'https://pokeapiauth.com'
+  baseURL: import.meta.env.VITE_AUTH_API_BASE_URL
 });
 
 http.interceptors.response.use(
